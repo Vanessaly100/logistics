@@ -7,7 +7,13 @@ import icon4 from "../../../assets/icon-4.png.png";
 import icon5 from "../../../assets/icon-5.png.png";
 import about03 from "../../../assets/about-03.jpg.jpg";
 import { ArrowRight } from "lucide-react";
-import AboutStats from "@/components/AboutStats";
+// import AboutStats from "@/components/AboutStats";
+import dynamic from "next/dynamic";
+
+const AboutStats = dynamic(() => import("@/components/AboutStats"), {
+  ssr: false,
+});
+
 
 const About = () => {
   return (
