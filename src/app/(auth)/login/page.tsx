@@ -57,7 +57,7 @@ import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { useAuth } from "../../../context/AuthContext";
 import { toast } from "react-toastify";
 
-const Login = () => {
+export default function Login () {
   const router = useRouter();
   const [isOpen, setIsOpen] = useState(false);
   const [loading, setLoading] = useState(false);
@@ -162,4 +162,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+

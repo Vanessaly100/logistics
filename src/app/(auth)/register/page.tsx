@@ -9,7 +9,7 @@ import socket from "@/utils/socket";
 import { useRouter } from "next/navigation";
 import { toast } from "react-toastify";
 
-const Register = () => {
+export default function Register() {
   const router = useRouter();
   const [isOpen, setIsOpen] = useState(false);
 
@@ -122,4 +122,3 @@ const Register = () => {
   );
 };
 
-export default Register;
