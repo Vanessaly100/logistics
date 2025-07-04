@@ -14,7 +14,7 @@ type User = {
   type AuthContextType = {
       user: User
       loading: boolean
-      login: (email: string, password: string) => Promise<void>
+      login: (email: string, password: string) => Promise<{ message: string; role?: string } | undefined>
       logout: () => void
   }
 
@@ -66,7 +66,7 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
   }, []);
 
   //  Login function
-  const login = async (email: string, password: string) => {
+  const login = async (email: string, password: string): Promise<{ message: string; role?: string } | undefined> => {
     try {
       const response = await axios.post(
         "http://localhost:8000/api/auth/login",
@@ -85,6 +85,8 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
       console.error("Login error:", error);
       throw new Error("Invalid email or password");
     }
+    // Explicitly return undefined if no value is returned above
+    return undefined;
   };
 
   // Logout function
